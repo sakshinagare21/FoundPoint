@@ -1,0 +1,328 @@
+.auth-wrapper {
+  margin: 1;
+  padding: 1;
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #89f7fe, #66a6ff);  */
+}
+
+.login-form,
+.register-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* background-image: url(${process.env.PUBLIC_URL + '/images/WlcmBackImg.jpg'}); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.auth-container {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(-10px); /* Optional blur effect */
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  width: 800px;
+  max-width: 100%;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  width: 50%;
+}
+
+.sign-in-container {
+left: 0;
+width: 50%;
+z-index: 2;
+}
+.sign-up-container {
+left: 0;
+width: 50%;
+opacity: 0;
+z-index: 1;
+}
+.sign-up-container,
+.sign-in-container {
+  pointer-events: none;
+  transition: all 0.6s ease-in-out;
+}
+
+.auth-container.active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  pointer-events: all; /* enable interaction */
+}
+
+.auth-container.active .sign-in-container {
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none; /* disable interaction */
+}
+
+.auth-container:not(.active) .sign-in-container {
+  pointer-events: all;
+}
+
+.auth-container:not(.active) .sign-up-container {
+  pointer-events: none;
+}
+
+.custom-file-upload {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 12px 24px;
+background: linear-gradient(135deg, #0b9444, #0e0f0e);
+color: white;
+border-radius: 50px;
+font-weight: 500;
+cursor: pointer;
+margin-bottom: 15px;
+transition: all 0.3s ease;
+box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+.custom-file-upload:hover {
+background: linear-gradient(135deg, #218838, #1e7e34);
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+}
+
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.auth-container.active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background: linear-gradient(to right, #0b9444, #060605);
+  color: white;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container.active .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+}
+
+.overlay-left {
+  transform: translateX(0);
+  left: 0;
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent background for form */
+  padding: 30px 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0b9444;
+  font-weight: 600;
+}
+
+.form-box span {
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #444;
+  font-size: 14px;
+}
+
+.form-box label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.form-box .form-control {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  font-size: 15px;
+}
+
+.form-box .form-control::placeholder {
+  font-style: italic;
+  font-size: 13px;
+}
+
+.form-box .btn {
+  width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to right, #0b9444, #0e0f0e);
+  color: white;
+  margin-top: 10px;
+  font-weight: bold;
+  border: none;
+  transition: background 0.3s;
+}
+
+.form-box input[type="file"] {
+  padding: 10px 0;
+}
+
+.form-box .custom-file-upload {
+  display: inline-block;
+  padding: 10px 1zz5px;
+  background-color: #e5f8df;
+  color: #095126;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.form-box .custom-file-upload:hover {
+  background-color: #d2f0c6;
+}
+
+.form-box .btn:hover {
+  background: linear-gradient(to right, #096a33, #080808);
+}
+
+a {
+  text-decoration: none;
+  color: #0b9444;
+  font-size: 13px;
+}
+
+input[type="file"]::file-selector-button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #e5f8df;
+  color: #095126;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 10px;
+}
+/* TO make responsive navbar */
+@media (max-width: 991px) {
+  .navbar-wrapper {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .navbar-nav {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    padding-top: 1rem;
+  }
+
+  .nav-glow-effect {
+    width: 100%;
+    text-align: left;
+    padding-left: 1.25rem !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-hover-line {
+    left: 0;
+    transform: none;
+  }
+
+  .nav-glow-effect:hover .nav-hover-line {
+    width: 30%;
+  }
+
+  .navbar-collapse {
+    margin-top: 1rem;
+    background: rgba(7, 43, 33, 0.95);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.1);
+  }
+
+ 
+}
+
+
+@media (max-width: 576px) {
+  .navbar-wrapper .navbar {
+    border-radius: 1rem !important;
+    padding: 8px 12px;
+    flex-direction: column;
+  }
+
+  .navbar-brand .rounded-circle {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+  }
+
+  .navbar-brand span {
+    font-size: 16px !important;
+  }
+
+  .dropdown-toggle span {
+    font-size: 13px;
+  }
+
+  .nav-link {
+    font-size: 13px !important;
+    padding: 6px 10px !important;
+  }
+}
+

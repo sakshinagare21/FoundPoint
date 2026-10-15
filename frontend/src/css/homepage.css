@@ -1,0 +1,70 @@
+.custom-navbar {
+  background: rgba(0, 0, 0, 0.8) !important; /* Semi-transparent dark */
+  backdrop-filter: blur(5px);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .dropdown-toggle {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .dropdown-item:hover {
+  color: #f9a825 !important; /* Plex orange-yellow highlight */
+}
+
+.custom-navbar .dropdown-menu {
+  background-color: rgba(30, 30, 30, 0.95);
+  border: none;
+}
+
+.custom-navbar .dropdown-item {
+  color: #ffffff;
+}
+
+/* Button Styling */
+.btn-plex {
+  background-color: #f9a825;
+  border: none;
+  color: #000000;
+  font-weight: 600;
+}
+
+.btn-plex-outline {
+  border: 2px solid #f9a825;
+  color: #f9a825;
+  font-weight: 600;
+  background: transparent;
+}
+
+.btn-plex-outline:hover {
+  background-color: #f9a825;
+  color: #000000;
+}
+
+/* Hero Section Styling */
+.hero-section {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+     /* background-image: url(${process.env.PUBLIC_URL + '/images/WlcmBackImg.jpg'}); */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
